@@ -1,0 +1,71 @@
+#include <iostream>
+#include<ctime>
+#include<cstdlib>
+using namespace std;
+
+//Compiler version g++ 6.3.0
+
+int main()
+{
+   //User choice
+   char chh ='y';
+  while(1)
+  { if(chh=='y')
+    {cout<<"Enter your choice r/p/s : " ;
+   char ch ;
+   cin>>ch ;
+   try{
+     if(ch=='r')
+     cout<<endl<<"You : rock" ;
+     else if(ch=='p')
+     throw(2) ;
+     else
+      throw('g') ;
+   }
+   catch(int e)
+   {cout<<endl<<"You : paper" ;
+   }
+   catch(char f)
+  { cout<<endl<<"You : scissor" ;
+    }
+   
+   
+   //computer choice
+    srand(time(0)) ;
+   int a= rand()%3 ;
+   try{
+     if(a==0)
+     cout<<endl<<"computer : rock" ;
+     else if(a==1)
+     throw(a) ;
+     else
+      throw('s') ;
+   }
+   catch(int b)
+   {cout<<endl<<"computer : paper" ;
+   }
+   catch(char c)
+  { cout<<endl<<"computer : scissor" ;
+    }
+   if((a==0 && ch=='r') || (a==1 && ch=='p') || (a==2 && ch=='s'))
+    cout<<endl<<"Match draw" ;
+   else if(ch=='r' && a==1)
+    cout<<endl<<"You lose " ;
+   else if(ch=='r' && a==2)
+    cout<<endl<<"You win " ;
+   else if(ch=='p' && a==0)
+    cout<<endl<<"You win" ;
+   else if(ch=='p' && a==2)
+    cout<<endl<<"You lose" ;
+   else if(ch=='s' && a==0)
+    cout<<endl<<"You lose" ;
+   else if(ch=='s' && a==1)
+    cout<<endl<<"You win" ;
+    cout<<endl<<"Play further : y/n " ;
+   cin>>chh ;
+    }
+   else
+     break ;
+  }
+  return 0 ;
+}
